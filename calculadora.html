@@ -4,6 +4,8 @@
 </head>
 <body>
 <center>
+<input type="hidden" id="valorMemoria">
+<input type="hidden" id="operacao">
 <input id="display" type="text">
 <br/>
 <input onclick= "clickButton(7)" type="button" value="7">
@@ -30,7 +32,7 @@
 </html>
 <script>
     let valorAtual = 0
-    let valorAntigo = 0
+    let valorAntigo = ""
 
 function clickButton(valor){
         display = document.getElementById("display")
@@ -38,12 +40,12 @@ function clickButton(valor){
 }
 function operacoes(op) {
     let display = document.getElementById("display");
-    valorAntigo = display.value
     switch (op) {
         case "+":
-            valorAntigo = parseFloat(valorAntigo)
-            valorAtual = parseFloat(display.value)
-            display.value = valorAntigo + valorAtual
+            valorAntigo = display.value;
+            display.value = "";
+            valorAtual = display.value;
+            resultado = valorAtual+valorAntigo;
             break;
     
         default:
