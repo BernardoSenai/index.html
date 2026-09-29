@@ -4,27 +4,50 @@
 </head>
 <body>
 <center>
-<input type="text">
+<input id="display" type="text">
 <br/>
-<input id="sete" type="button" value="7">
-<input id="oito" type="button" value="8">
-<input id="nove" type="button" value="9">
-<input id="divisao" type="button" value="/">
+<input onclick= "clickButton(7)" type="button" value="7">
+<input onclick= "clickButton(8)" id="oito" type="button" value="8">
+<input onclick= "clickButton(9)" id="nove" type="button" value="9">
+<input onclick= "operacoes('/')" id="divisao" type="button" value="/">
 <br/>
-<input id="quatro" type="button" value="4">
-<input id="cinco" type="button" value="5">
-<input id="seis" type="button" value="6">
-<input id="vezes" type="button" value="*">
+<input onclick= "clickButton(4)" id="quatro" type="button" value="4">
+<input onclick= "clickButton(5)" id="cinco" type="button" value="5">
+<input onclick= "clickButton(6)" id="seis" type="button" value="6">
+<input onclick= "operacoes('*')" id="vezes" type="button" value="*">
 <br/>
-<input id="um" type="button" value="1">
-<input id="dois" type="button" value="2">
-<input id="tres" type="button" value="3">
-<input id="menos" type="button" value="-">
+<input onclick= "clickButton(1)" id="um" type="button" value="1">
+<input onclick= "clickButton(2)" id="dois" type="button" value="2">
+<input onclick= "clickButton(3)" id="tres" type="button" value="3">
+<input onclick= "operacoes('-')" id="menos" type="button" value="-">
 <br/>
-<input id="zero" type="button" value="0">
-<input id="ponto"type="button" value=".">
-<input id="igual"type="button" value="=">
-<input id="mais"type="button" value="+">
+<input onclick= "clickButton(0)" id="zero" type="button" value="0">
+<input onclick= "clickButton('.')" id="ponto"type="button" value=".">
+<input onclick= "operacoes('=')" id="igual"type="button" value="=">
+<input onclick= "operacoes('+')" id="mais"type="button" value="+">
 </center>
 </body>
 </html>
+<script>
+    let valorAtual = 0
+    let valorAntigo = 0
+
+function clickButton(valor){
+        display = document.getElementById("display")
+        display.value += valor
+}
+function operacoes(op) {
+    let display = document.getElementById("display");
+    valorAntigo = display.value
+    switch (op) {
+        case "+":
+            valorAntigo = parseFloat(valorAntigo)
+            valorAtual = parseFloat(display.value)
+            display.value = valorAntigo + valorAtual
+            break;
+    
+        default:
+            break;
+    }
+}
+</script>
