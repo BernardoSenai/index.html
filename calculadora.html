@@ -31,8 +31,9 @@
 </body>
 </html>
 <script>
-    let valorAtual = 0
-    let valorAntigo = ""
+    let valorMemoria = 0
+    let valorAntigo = 0
+    let resultado = 0
 
 function clickButton(valor){
         display = document.getElementById("display")
@@ -40,15 +41,15 @@ function clickButton(valor){
 }
 function operacoes(op) {
     let display = document.getElementById("display");
+    let valorMemoria = document.getElementById("valorMemoria")
     switch (op) {
         case "+":
             valorAntigo = display.value;
+            valorMemoria = display.value;
             display.value = "";
-            valorAtual = display.value;
-            resultado = valorAtual+valorAntigo;
-            break;
-    
-        default:
+            valorMemoria = display.value;
+            resultado = valorMemoria+valorAntigo;
+            display.value = resultado;
             break;
     }
 }
